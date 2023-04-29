@@ -1,6 +1,6 @@
 import { gql } from 'apollo-server-core';
 
-import { typeDefs as clientSurveyTypeDefs } from './client-survey.schema';
+import { typeDefs as dataParserTypeDefs } from './data-parser.schema';
 
 const scalarSchema = gql`
   scalar ObjectID
@@ -9,7 +9,7 @@ const scalarSchema = gql`
 
 const typeDefs = gql`
   ${scalarSchema}
-  ${clientSurveyTypeDefs}
+  ${dataParserTypeDefs}
 `;
 
 export { typeDefs };

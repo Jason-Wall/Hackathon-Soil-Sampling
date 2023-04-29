@@ -1,13 +1,13 @@
 import { setupDb } from '../database';
-import { ClientSurveyRepository } from '../repositories/client-survey/client-survey.repository';
-import { ClientSurveyProvider } from './clientSurveys/client-survey.provider';
+import { SoilSampleRepository } from '../repositories/soil-sample/soil-sample.repository';
+import { DataParserProvider } from './data-parser/data-parser.provider';
 
 const db = setupDb();
 
 // repositories
-const clientSurveyRepository = new ClientSurveyRepository(db.collection('clientSurveys'));
+const soilSampleRepository = new SoilSampleRepository(db.collection('soilSamples'));
 
 // providers
-const clientSurveyProvider = new ClientSurveyProvider(clientSurveyRepository);
+const dataParserProvider = new DataParserProvider(soilSampleRepository);
 
-export { clientSurveyProvider };
+export { dataParserProvider };

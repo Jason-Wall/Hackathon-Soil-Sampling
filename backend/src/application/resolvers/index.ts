@@ -1,7 +1,7 @@
 import { merge } from 'lodash';
 
-import { clientSurveyResolver } from './client-survey.resolver';
+import { dataParserResolver } from './data-parser.resolver';
 
-const resolvers = merge(clientSurveyResolver);
+const resolvers = merge(dataParserResolver);
 
 export { resolvers };
