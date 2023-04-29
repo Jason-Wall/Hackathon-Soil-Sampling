@@ -3,7 +3,7 @@ import React from 'react'
 function Hero() {
   return (
     <div className='w-full h-full max-w-5xl justify-center mx-auto'>
-    <div id="hero" className="max-w-full bg-hl1 py-20">
+    <div id="hero" className="max-w-full py-20">
       <div className='max-w-5xl mx-auto flex flex-col'>
         {/* Main Container */}
         <div className='max-w-5xl w-full mx-auto relative'>

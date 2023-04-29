@@ -14,12 +14,15 @@ function Graph() {
         {x: 200, y: 100}]
 
   return (
-    <div className='w-full h-auto max-w-6xl bg-slate-200'>
-        <LineChart width={600} height={400} data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+    <div className='w-full bg-slate-200'>
+
+    
+    <div className='w-full h-auto max-w-6xl bg-slate-200 flex justify-center items-center'>
+        <LineChart width={800} height={500} data={data}
+        margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="x" />
-        <YAxis dataKey='y' />
+        <XAxis dataKey="x" reversed='true'   />
+        <YAxis  />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="x" stroke="#8884d8" />
@@ -27,6 +30,7 @@ function Graph() {
         </LineChart>
         
 
+    </div>
     </div>
   )
 }
