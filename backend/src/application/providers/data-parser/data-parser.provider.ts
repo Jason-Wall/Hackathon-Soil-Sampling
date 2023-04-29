@@ -7,40 +7,43 @@ import { ObjectId } from 'mongodb';
 class DataParserProvider {
   constructor(private repository: SoilSampleRepository) {}
 
-  public async createClientSurvey(input: CreateSampleSoilDataInput): Promise<ParsingResult> {
+  public async processCsv(input: CreateSampleSoilDataInput): Promise<ParsingResult> {
     const csvContent = atob(input.csvContent);
 
     const storage: SoilSamplesStorage = {
       name: input.name,
-      samples: []
+      samples: [],
     };
 
-    parse(csvContent, {
-      delimiter: ',',
-      columns: () => {
-        return ['size', 'cumulativePercentage'];
+    parse(
+      csvContent,
+      {
+        delimiter: ',',
+        columns: () => {
+          return ['size', 'cumulativePercentage'];
+        },
       },
-    }, (error, result: SoilSample[]) => {
-      if (error) {
-        console.error(error);
+      (error, result: SoilSample[]) => {
+        if (error) {
+          console.error(error);
+        }
+
+        storage.samples = result;
       }
+    );
 
-      storage.samples = result;
-    });
-
-    try{
+    try {
       this.repository.createSoilSample(new ObjectId(input.id), storage);
       return {
         id: input.id,
         success: true,
-      }
-    }
-    catch(ex) {
+      };
+    } catch (ex) {
       return {
         id: input.id,
         success: false,
-        errors: [(ex as any).message]
-      }
+        errors: [(ex as any).message],
+      };
     }
   }
 }

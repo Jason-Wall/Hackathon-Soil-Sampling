@@ -41,9 +41,19 @@ export type MutationParseSoilSamplingCsvArgs = {
   input: SendCsvInput;
 };
 
+export type Query = {
+  __typename?: "Query";
+  test?: Maybe<TestResponse>;
+};
+
 export type SendCsvInput = {
   /** As base64 */
   csvContent: Scalars["String"];
   id: Scalars["ObjectID"];
   name: Scalars["String"];
+};
+
+export type TestResponse = {
+  __typename?: "TestResponse";
+  test: Scalars["String"];
 };

@@ -11,6 +11,14 @@ const typeDefs = gql`
     message: String!
   }
 
+  type TestResponse {
+    test: String!
+  }
+
+  type Query {
+    test: TestResponse
+  }
+
   type Mutation {
     parseSoilSamplingCsv(input: SendCsvInput!): CsvParserResult!
   }

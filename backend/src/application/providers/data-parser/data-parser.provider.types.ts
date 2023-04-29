@@ -1,7 +1,7 @@
 export interface ParsingResult {
   id: string;
   success: boolean;
-  errors?: CsvParserErrors[]
+  errors?: CsvParserErrors[];
 }
 
 export interface CsvParserErrors {

@@ -5,7 +5,7 @@ import { CsvParserResult, SendCsvInput } from '../schema/types/schema';
 const dataParserResolver = {
   Mutation: {
     parseSoilSamplingCsv: async (_: Root, args: { input: SendCsvInput }): Promise<CsvParserResult> => {
-      return dataParserProvider.createClientSurvey(args.input);
+      return dataParserProvider.processCsv(args.input);
     },
   },
 };
